@@ -1,0 +1,178 @@
+@import 'reset';
+@import 'variables';
+@import 'mixins';
+
+body {
+	background-color: #e9eaed;
+	font-family:helvetica, arial, sans-serif;
+	margin:0;
+}
+
+
+.main-bar {
+	@include flex;
+	justify-content: space-between;
+
+	background-color: $main-bar-color;
+	border-bottom: 1px solid #103480;
+	box-shadow: 0 2px 2px -2px rgba(0,0,0,0.8);
+	box-sizing: border-box;
+	height: 42px;
+	width: 100%;
+
+	button {
+		height: $main-bar-element-height;
+		cursor: pointer;
+	}
+}
+
+.icon-search {
+	@include inline-flex;
+	@include align-center;
+
+	flex-grow: 1;
+	height: inherit;
+
+	> .fbicon {
+		background: transparent url(../imgs/icons-sheet-1.png) no-repeat -44px -32px;
+		border: none;
+		width: $main-bar-element-height;
+		margin-right: 7px;
+		padding: 0;
+		&:hover {
+			background-color: #355089;
+			box-shadow: 0 0 0 2px #355089;
+		}
+		&:focus {
+			outline: none;
+		}
+	}
+
+	> .search-form {
+		@include flex;
+
+		flex-grow: 1; //-
+		margin-right: 2px;
+		min-width: 142px; //-
+		max-width: 446px; //-
+		.field {
+			flex-grow: 1; //-
+			font-size: 14px;
+			border: none;
+			border-top-left-radius: $border-radius-search-form;
+			border-bottom-left-radius: $border-radius-search-form;
+			color: #141823;
+			height: $main-bar-element-height;
+			padding: 0;
+			text-indent: 7px;
+			&:focus {
+				outline: none;
+			}
+		}
+		.action {
+			@include inline-flex;
+			@include justify-center;
+
+			background-color: #f6f7f9;
+			border: none;
+			border-top-right-radius: $border-radius-search-form;
+			border-bottom-right-radius: $border-radius-search-form;
+			width: 46px;
+			&:hover {
+				background-color: #e9ebee;
+			}
+			&:focus {
+				outline: none;
+			}
+			i {
+				background: transparent url(../imgs/icons-sheet-2.png) no-repeat -19px -45px;
+				height: 14px;
+				width: 14px;
+			}
+		}
+	}
+}
+
+.user-info {
+	@include inline-flex;
+	@include align-center;
+
+
+
+	color: #fff;
+	font-size: 12px;
+	width: 303px; //se seus itens interiores tiverem width fixa, a width do user-info é desnecessária (e até melhor que seja)
+	
+	> .profile {
+		@include user-info-button-pattern;
+		@include user-info-profile-home-pattern;
+
+
+		margin-left: 2px;
+
+		&:hover {
+			@include user-info-profile-home-hover;
+		}
+
+		.flexbutton {
+			@include inline-flex;
+			@include align-center;
+		}
+
+		.thumbnail {
+			border-radius: 2px;
+			margin-right: 6px;
+			height: $main-bar-element-height;
+			width: $main-bar-element-height;
+		}
+
+		.name {
+			padding-right: 10px;
+		}
+	}
+
+	> .home {
+		@include user-info-button-pattern;
+		@include user-info-profile-home-pattern;
+	
+		border-left: 1px solid $user-info-division;
+
+		&:hover {
+			@include user-info-profile-home-hover;
+		}
+
+		.homespan {
+			padding: 0 10px;
+		}
+	}
+
+	> .newfriend {
+			@include user-info-button-pattern;
+
+			background: transparent url(../imgs/icons-sheet-3.png) no-repeat 0px -847px;
+			opacity: 0.6;
+			width: $main-bar-element-height;
+
+			&:hover {opacity: $user-info-news-opacity-hover;}
+	}
+
+	> .message {
+			@include user-info-button-pattern;
+			
+			background: transparent url(../imgs/icons-sheet-3.png) no-repeat 0px -997px;
+			opacity: 0.6;
+			width: $main-bar-element-height;
+
+			&:hover {opacity: $user-info-news-opacity-hover;}
+	}
+
+	> .notification {
+			@include user-info-button-pattern;
+			
+			background: transparent url(../imgs/icons-sheet-3.png) no-repeat -1px -897px;
+			opacity: 0.6;
+			width: $main-bar-element-height;
+
+			&:hover {opacity: $user-info-news-opacity-hover;}
+	}
+}
