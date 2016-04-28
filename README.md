@@ -1,6 +1,6 @@
 # Navbar-facebook
 
-Decided to practice my skills reproducing the Facebook navbar :-)
+I've decided to practice my skills reproducing the Facebook navbar :-)
 
 Also putting into practice my Sass knowledge along with RSCSS study.
 
